@@ -8,6 +8,7 @@ import com.github.jknack.handlebars.Handlebars
 import com.github.jknack.handlebars.Helper
 import com.github.jknack.handlebars.io.TemplateSource
 import com.github.jknack.handlebars.io.URLTemplateSource
+import dev.icerock.registerHelpersDefaultFeature
 import java.io.File
 import java.io.FileWriter
 
@@ -18,6 +19,8 @@ class Shaper(private val config: Config) {
         handlebars.registerHelper("packagePath", Helper<String> { context, _ ->
             context.replace('.', '/')
         })
+
+        registerHelpersDefaultFeature(handlebars)
 
         config.files.forEach { fileConfig ->
             val allParams = config.globalParams + fileConfig.templateParams

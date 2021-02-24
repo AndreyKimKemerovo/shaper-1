@@ -10,3 +10,4 @@ dependencyResolutionManagement {
 
 include("shaper-core")
 include("shaper-cli")
+include("default-feature")
